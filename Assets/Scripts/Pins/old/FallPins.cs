@@ -4,26 +4,32 @@ public class PinFall : MonoBehaviour
 {
     private Rigidbody rb;
     private bool hasFallen = false;
+    private PinCounter pinCounter;  
+
+    private float initialXRotation;
+    private float initialZRotation;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        pinCounter = FindObjectOfType<PinCounter>(); 
+
+        // ذخیره مقدار اولیه‌ی چرخش
+        initialXRotation = transform.rotation.eulerAngles.x;
+        initialZRotation = transform.rotation.eulerAngles.z;
     }
 
     void OnTriggerEnter(Collider collision)
     {
-        
         if (collision.gameObject.CompareTag("ball"))
         {
-            
             rb.isKinematic = false;
+            rb.useGravity = true;
             rb.AddForce(Vector3.right * 5f, ForceMode.Impulse); 
         }
 
-        
         if (collision.gameObject.CompareTag("pin"))
         {
-            
             Rigidbody otherRb = collision.gameObject.GetComponent<Rigidbody>();
             if (otherRb != null && otherRb.isKinematic)
             {
@@ -35,11 +41,17 @@ public class PinFall : MonoBehaviour
 
     void Update()
     {
-       
-        if (!hasFallen && Mathf.Abs(transform.rotation.eulerAngles.x) > 20f || Mathf.Abs(transform.rotation.eulerAngles.z) > 20f)
+        // محاسبه تغییرات زاویه نسبت به مقدار اولیه
+        float deltaX = Mathf.DeltaAngle(initialXRotation, transform.rotation.eulerAngles.x);
+        float deltaZ = Mathf.DeltaAngle(initialZRotation, transform.rotation.eulerAngles.z);
+
+        if (!hasFallen && (Mathf.Abs(deltaX) > 20f || Mathf.Abs(deltaZ) > 20f))
         {
             hasFallen = true;
-   
+            if (pinCounter != null) 
+            {
+                pinCounter.IncreasePinCount();
+            }
             Destroy(gameObject, 2f);
         }
     }
