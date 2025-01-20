@@ -9,6 +9,8 @@ public class PinFall : MonoBehaviour
     private float initialXRotation;
     private float initialZRotation;
 
+    public AudioSource collisionSound;  // برای صدای برخورد
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -26,6 +28,11 @@ public class PinFall : MonoBehaviour
             rb.isKinematic = false;
             rb.useGravity = true;
             rb.AddForce(Vector3.right * 5f, ForceMode.Impulse); 
+
+            if (collisionSound != null)
+            {
+                collisionSound.Play();
+            }
         }
 
         if (collision.gameObject.CompareTag("pin"))
