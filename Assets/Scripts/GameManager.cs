@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameWinPanel; 
     public Button restartButton; 
     public Button nextLevelButton; 
-    public Button lastLevelButton; 
+   
     public GameObject GameOverPanel; 
     public Button GameoverRestartButton;
     private int currentLevelIndex;
@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
         GameOverPanel.SetActive(false);
         restartButton.onClick.AddListener(RestartGame);
         nextLevelButton.onClick.AddListener(NextLevel);
-        lastLevelButton.onClick.AddListener(LastLevel);
+       
         GameoverRestartButton.onClick.AddListener(RestartGame);
         currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
     }
@@ -40,18 +40,18 @@ public class GameManager : MonoBehaviour
             if (currentLevelIndex == SceneManager.sceneCountInBuildSettings - 2)
             {
                 nextLevelButton.gameObject.SetActive(false); 
-                lastLevelButton.gameObject.SetActive(true);
+          
             }
             else
             {
                 nextLevelButton.gameObject.SetActive(true);
-                lastLevelButton.gameObject.SetActive(false);
+               
             }
         }
         else
         {
             nextLevelButton.gameObject.SetActive(false);
-            lastLevelButton.gameObject.SetActive(false);
+           
         }
     }
 
@@ -63,17 +63,13 @@ public class GameManager : MonoBehaviour
     void NextLevel()
     {
         int nextLevelIndex = currentLevelIndex + 1;
-        
         if (nextLevelIndex < SceneManager.sceneCountInBuildSettings)
         {
             SceneManager.LoadScene(nextLevelIndex);
         }
     }
 
-    void LastLevel()
-    {
-        SceneManager.LoadScene("EndScene");
-    }
+   
 
     public void ShowNewGameOverPanel()
     {

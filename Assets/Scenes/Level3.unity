@@ -2098,7 +2098,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &922367619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4371,8 +4371,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameWinPanel: {fileID: 451424201}
   restartButton: {fileID: 1489314272}
-  nextLevelButton: {fileID: 0}
-  lastLevelButton: {fileID: 710075976}
+  nextLevelButton: {fileID: 710075976}
   GameOverPanel: {fileID: 922367618}
   GameoverRestartButton: {fileID: 1706994150}
 --- !u!4 &2104603034
