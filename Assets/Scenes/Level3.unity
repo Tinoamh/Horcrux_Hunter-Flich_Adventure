@@ -4371,7 +4371,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameWinPanel: {fileID: 451424201}
   restartButton: {fileID: 1489314272}
-  nextLevelButton: {fileID: 710075976}
+  nextLevelButton: {fileID: 0}
+  lastLevelButton: {fileID: 710075976}
   GameOverPanel: {fileID: 922367618}
   GameoverRestartButton: {fileID: 1706994150}
 --- !u!4 &2104603034
