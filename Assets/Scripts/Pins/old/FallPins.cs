@@ -9,7 +9,7 @@ public class PinFall : MonoBehaviour
     private float initialXRotation;
     private float initialZRotation;
 
-    public AudioSource collisionSound;  // برای صدای برخورد
+    public AudioSource collisionSound; 
 
     void Start()
     {
@@ -48,7 +48,6 @@ public class PinFall : MonoBehaviour
 
     void Update()
     {
-        // محاسبه تغییرات زاویه نسبت به مقدار اولیه
         float deltaX = Mathf.DeltaAngle(initialXRotation, transform.rotation.eulerAngles.x);
         float deltaZ = Mathf.DeltaAngle(initialZRotation, transform.rotation.eulerAngles.z);
 

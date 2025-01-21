@@ -50,10 +50,16 @@ public class GameManager : MonoBehaviour
     }
 
     void NextLevel()
+{
+    int nextLevelIndex = currentLevelIndex + 1;
+    
+    if (nextLevelIndex < SceneManager.sceneCountInBuildSettings)
     {
-
-        SceneManager.LoadScene("Level2");
+        SceneManager.LoadScene(nextLevelIndex);
     }
+    
+}
+
      public void ShowNewGameOverPanel()
     {
         if (GameOverPanel != null)

@@ -10,12 +10,12 @@ public class WallCollision : MonoBehaviour
     [SerializeField] private Transform camera1;
     [SerializeField] private Transform camera2;
 
-    private GameManager gameManager; // اضافه کردن ارجاع به GameManager
+    private GameManager gameManager; 
 
     void Start()
     {
         ballManager = FindObjectOfType<BallManager>();
-        gameManager = FindObjectOfType<GameManager>(); // پیدا کردن GameManager
+        gameManager = FindObjectOfType<GameManager>(); 
 
         camera2.gameObject.SetActive(false);
     }
@@ -24,14 +24,14 @@ public class WallCollision : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("ball"))
         {
-            Debug.Log("Ball collided with wall. Waiting for 5 seconds before checking pins and destroying the ball.");
+            Debug.Log("Ball collided with wall. Waiting for 5 seconds .");
             StartCoroutine(DestroyBallAfterDelay());
         }
     }
 
     IEnumerator DestroyBallAfterDelay()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
 
         if (ArePinsLeft())
         {
@@ -42,7 +42,7 @@ public class WallCollision : MonoBehaviour
         else
         {
             Debug.Log("you win!");
-            gameManager.ShowGameOver(); // فراخوانی تابع Game Over از GameManager
+            gameManager.ShowGameOver(); 
         }
     }
 
@@ -52,10 +52,10 @@ public class WallCollision : MonoBehaviour
         {
             if (pin != null)
             {
-                return true; // اگر پینی باقی باشد
+                return true; 
             }
         }
-        return false; // اگر هیچ پینی باقی نمانده
+        return false; 
     }
 
     public void ResetCameraToStart()
