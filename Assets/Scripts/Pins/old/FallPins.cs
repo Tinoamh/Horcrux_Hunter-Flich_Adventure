@@ -15,25 +15,34 @@ public class PinFall : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         pinCounter = FindObjectOfType<PinCounter>(); 
-
-        // ذخیره مقدار اولیه‌ی چرخش
         initialXRotation = transform.rotation.eulerAngles.x;
         initialZRotation = transform.rotation.eulerAngles.z;
     }
 
     void OnTriggerEnter(Collider collision)
-    {
-        if (collision.gameObject.CompareTag("ball"))
-        {
-            rb.isKinematic = false;
-            rb.useGravity = true;
-            rb.AddForce(Vector3.right * 5f, ForceMode.Impulse); 
+{
+    Debug.Log("Trigger Entered with: " + collision.gameObject.name); // بررسی اجرا شدن کد
 
-            if (collisionSound != null)
-            {
-                collisionSound.Play();
-            }
+    if (collision.gameObject.CompareTag("ball"))
+    {
+        rb.isKinematic = false;
+        rb.useGravity = true;
+        rb.AddForce(Vector3.right * 5f, ForceMode.Impulse);
+
+        if (collisionSound != null)
+        {
+            collisionSound.PlayOneShot(collisionSound.clip);
+            Debug.Log("Sound played on ball collision");
         }
+        else
+        {
+            Debug.LogError("collisionSound is not assigned!");
+        }
+    }
+
+
+   
+
 
         if (collision.gameObject.CompareTag("pin"))
         {

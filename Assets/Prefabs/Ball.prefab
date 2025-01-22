@@ -150,3 +150,4 @@ MonoBehaviour:
   forceMultiplier: 300
   ballRigidbody: {fileID: 8608798724863061351}
   throwSound: {fileID: 0}
+  lineRenderer: {fileID: 0}
