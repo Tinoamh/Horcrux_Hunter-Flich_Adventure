@@ -1,22 +1,24 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; 
-using UnityEngine.UI; 
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject gameWinPanel; 
-    public Button restartButton; 
-    public Button nextLevelButton; 
-   
-    public GameObject GameOverPanel; 
+    public GameObject gameWinPanel;
+    public Button restartButton;
+    public Button nextLevelButton;
+
+    public GameObject GameOverPanel;
     public Button GameoverRestartButton;
+    public Button restartInGameButton; // دکمه جدید ری‌استارت
+
     private int currentLevelIndex;
 
     public void ShowGameOver()
     {
         if (gameWinPanel != null)
         {
-            gameWinPanel.SetActive(true); 
+            gameWinPanel.SetActive(true);
         }
     }
 
@@ -26,8 +28,8 @@ public class GameManager : MonoBehaviour
         GameOverPanel.SetActive(false);
         restartButton.onClick.AddListener(RestartGame);
         nextLevelButton.onClick.AddListener(NextLevel);
-       
         GameoverRestartButton.onClick.AddListener(RestartGame);
+         restartInGameButton.onClick.AddListener(RestartGame);
         currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
     }
 
@@ -39,19 +41,17 @@ public class GameManager : MonoBehaviour
         {
             if (currentLevelIndex == SceneManager.sceneCountInBuildSettings - 2)
             {
-                nextLevelButton.gameObject.SetActive(false); 
-          
+                nextLevelButton.gameObject.SetActive(false);
             }
             else
             {
                 nextLevelButton.gameObject.SetActive(true);
-               
             }
         }
         else
         {
             nextLevelButton.gameObject.SetActive(false);
-           
+            ShowNewGameOverPanel();
         }
     }
 
@@ -69,13 +69,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-   
-
     public void ShowNewGameOverPanel()
     {
         if (GameOverPanel != null)
         {
-            GameOverPanel.SetActive(true); 
+            GameOverPanel.SetActive(true);
         }
     }
 }

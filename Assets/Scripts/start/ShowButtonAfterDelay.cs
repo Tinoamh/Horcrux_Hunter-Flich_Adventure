@@ -7,6 +7,7 @@ public class ShowButtonAfterDelay : MonoBehaviour
     public Button startButton;  
     public Button muteButton;  
     public Button exitButton;  
+    public Slider volume;
     public float delayTime = 15f;  
     public AudioSource backgroundMusic;  
 
@@ -19,6 +20,7 @@ public class ShowButtonAfterDelay : MonoBehaviour
     void Start()
     {
         startButton.gameObject.SetActive(false);
+        volume.gameObject.SetActive(false);
         muteButton.gameObject.SetActive(false);
         exitButton.gameObject.SetActive(false);
         Invoke("ShowButton", delayTime);
@@ -42,6 +44,7 @@ public class ShowButtonAfterDelay : MonoBehaviour
 
     void ShowButton()
     {
+        volume.gameObject.SetActive(true);
         startButton.gameObject.SetActive(true);
         muteButton.gameObject.SetActive(true);
         exitButton.gameObject.SetActive(true);
