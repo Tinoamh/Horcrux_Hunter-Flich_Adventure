@@ -67,7 +67,7 @@ public class PinFall : MonoBehaviour
             {
                 pinCounter.IncreasePinCount();
             }
-            Destroy(gameObject, 2f);
+            Destroy(gameObject, 1.3f);
         }
     }
 }
