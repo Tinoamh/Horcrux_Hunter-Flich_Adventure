@@ -2929,7 +2929,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d425432863b725e4181fd48895bf7ebf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bed65b0b9f8d2ce4ab91691ad0fb13ec, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3564,7 +3564,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 250, y: 30}
-  m_SizeDelta: {x: 400, y: 500}
+  m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1258686453
 MonoBehaviour:
@@ -3586,7 +3586,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ee979c91e171e414aa6d9bb514020c72, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4fe9fa20b0e063b4987d45fa3f0aca4d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4240,8 +4240,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallenPinsText: {fileID: 404622735}
-  menuCanvas: {fileID: 192663327}
-  menuButton: {fileID: 539541533}
 --- !u!114 &1431403569
 MonoBehaviour:
   m_ObjectHideFlags: 0
