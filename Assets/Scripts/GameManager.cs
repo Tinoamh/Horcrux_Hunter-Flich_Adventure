@@ -10,8 +10,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject GameOverPanel;
     public Button GameoverRestartButton;
-    public Button restartInGameButton; // دکمه جدید ری‌استارت
-
+    public Button restartInGameButton;
     private int currentLevelIndex;
 
     public void ShowGameOver()

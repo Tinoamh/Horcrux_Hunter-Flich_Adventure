@@ -21,7 +21,7 @@ public class PinFall : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
 {
-    Debug.Log("Trigger Entered with: " + collision.gameObject.name); // بررسی اجرا شدن کد
+    Debug.Log("Trigger Entered with: " + collision.gameObject.name); 
 
     if (collision.gameObject.CompareTag("ball"))
     {

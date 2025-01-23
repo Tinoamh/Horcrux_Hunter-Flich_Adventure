@@ -39,6 +39,8 @@ public class MenuController : MonoBehaviour
            
             bool isActive = !menuCanvas.activeSelf;
             menuCanvas.SetActive(isActive);
+
+          
             canvasGroup.blocksRaycasts = isActive; 
         }
     }
